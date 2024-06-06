@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+// const mongoose = require("");
 const globalSettings = require("./settings");
 const schemaDefinitions = require("./schema");
 const mongooseOptions = globalSettings.mongooseOptions;
@@ -41,10 +42,16 @@ gitdb: function (collectionName) {
 
 gitdbcollecions:{
   table:'userdata',
-
+ table2:'sinup'
 
 },
 
+serverdb: function (collectionName) {
+  return collections["serverdb_" + collectionName];
+},
+serverdbcollections:{
+  table:'userdata',
+},
  
 
   mongoInitializer: async function () {

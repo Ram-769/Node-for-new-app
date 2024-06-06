@@ -99,12 +99,35 @@ const loginData = new mongoose.Schema({
         required: true   
     }
 });
+const users = new mongoose.Schema({
+    "_id": {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        auto: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique:true
+    },
+    password: {
+        type: String,
+        required: true   
+    },
+    phoneNo: {
+        type: String,
+        required: false   
+    }
+
+});
 
 
 module.exports = [
     { "coll": 'project', "schema": projectSchema, "db": "restdb" },
     { "coll": 'category', "schema": categorySchema, "db": "restdb" },
     { "coll": 'apilist', "schema": apiSchema, "db": "restdb" },
-    { "coll": 'userdata', "schema": loginData, "db": "gitdb" }
+    // { "coll": 'userdata', "schema": loginData, "db": "gitdb" },
+    { "coll": 'userdata', "schema": loginData, "db": "serverdb" }
+    
 
 ];
